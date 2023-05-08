@@ -1,29 +1,33 @@
 .App {
+  border: 1px solid black;
   background-color: lightblue;
   padding: 40px;
-  height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 .App > div {
   padding: 20px;
   margin: 20px;
+  border: 10px solid black;
   border-radius: 20px;
   width: 300px;
   height: 200px;
   font-size: medium;
-  /*text-align: center;*/
 }
 
 .colorButton {
   background-color: aqua;
-
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  top: 75%;
+  left: 62%;
+  /**/
 }
 
-.h1 {
-  radius: 3px solid black;
-  align-items: center;
+h1 {
+  border: 3px solid black;
+  border-radius: 5%;
+  text-align: center;
+  /*justify-content: center;*/
 }

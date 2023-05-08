@@ -1,70 +1,43 @@
 import './App.css';
+import color from 'randomcolor';
 import { useState } from 'react';
 
 export default function App() {
-  // 1. Create a state variable and setter, with
-  // a default value of a random emoji
-  const randomColor = '#' + Math.random().toString(16).substr(-6);
-  const [color, setColor] = useState('');
-
-  // const [hasError, setHasError] = useState(false);
+  const [randomColor, setRandomColor] = useState('');
+  const [hue, setHue] = useState('');
+  const [luminosity, setLuminosity] = useState('');
 
   return (
     <div className="App">
       {/* 2. Show the color on the screen */}
       <h1> Random Color Generator </h1>
-      <div
-        style={{
-          backgroundColor: randomColor,
-        }}
-      >
-        <>
-          <button
-            className="colorButton"
-            onClick={() =>
-              // 3. Generate and set a new value for the color
-              //example const newEmoji = nodeEmoji.random().emoji;
-              //example setEmoji(newEmoji);
-              setColor(randomColor)
-            }
-          >
-            Generate
-          </button>
-        </>
+      <div style={{ backgroundColor: randomColor }}>
+        color: {randomColor}
+        <button
+          className="colorButton"
+          onClick={() => {
+            setRandomColor(color({ hue: hue, luminosity: luminosity }));
+          }}
+        >
+          Generate
+        </button>
+        <br />
+        <input
+          //value={hue}
+          placeholder="type color"
+          onChange={(event) => {
+            setHue(event.currentTarget.value);
+          }}
+        />
+        <br />
+        <input
+          //value={luminosity}
+          placeholder="type dark or light"
+          onChange={(event) => {
+            setLuminosity(event.currentTarget.value);
+          }}
+        />
       </div>
     </div>
   );
-}
-//example with input button
-
-{
-  /* Generate
-<br />
-<input
-  value={emojiName}
-  onChange={(event) => {
-  setEmojiName(event.currentTarget.value);
-    if (nodeEmoji.hasEmoji(event.currentTarget.value)) {
-      // setHasError(false);
-      setEmoji(nodeEmoji.find(event.currentTarget.value).emoji);
-      // } else {
-      //   setHasError(true);
-    }
-  }}
-/>{' '}
-{hasError && 'x'}
-</div>
-</div>
-);/*
-/*import { useState } from 'react';
-
-const useGenerateRandomColor = () => {
-  const [color, setColor] = useState('');
-  const generateColor = () => {
-    setColor(Math.random().toString(16).substr(-6));
-  };
-  return { color, generateColor };
-};
-
-export default useGenerateRandomColor;*/
 }
